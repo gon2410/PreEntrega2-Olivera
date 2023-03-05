@@ -1,8 +1,7 @@
 import React from 'react'
 import CartWidget from './CartWidget';
 import Categories from './Categories';
-import { Container, Box } from '@chakra-ui/react'
-import { Flex, Spacer } from '@chakra-ui/react'
+import { Container, Box, Flex, Spacer } from '@chakra-ui/react'
 
 const NavBar = () => {
     return (
