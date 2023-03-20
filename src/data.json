@@ -7,6 +7,7 @@
         "year": "2020",
         "km": 90000,
         "stock": 1,
+        "price": 12000,
         "image": "../src/assets/Volkswagen_Polo_Rojo.png"
     },
     {
@@ -17,6 +18,7 @@
         "year": "2017",
         "km": 50000,
         "stock": 1,
+        "price": 15000,
         "image": "../src/assets/Chevrolet_Cruze_Blanco.png"
     },
     {
@@ -27,6 +29,7 @@
         "year": "2019",
         "km": 100000,
         "stock": 1,
+        "price": 8000,
         "image": "../src/assets/Renault_Sandero_Gris.png"
     },
     {
@@ -37,6 +40,7 @@
         "year": "2023",
         "km": 0,
         "stock": 3,
+        "price": 9500,
         "image": "../src/assets/Chevrolet_Onix_Rojo.png"
     },
     {
@@ -47,6 +51,7 @@
         "year": "2023",
         "km": 0,
         "stock": 5,
+        "price": 10000,
         "image": "../src/assets/Renault_Duster_Azul.png"
     },
     {
@@ -57,6 +62,7 @@
         "year": "2023",
         "km": 0,
         "stock": 4,
+        "price": 20000,
         "image": "../src/assets/Volkswagen_Virtus_Gris_Oscuro.png"
     }
 ]

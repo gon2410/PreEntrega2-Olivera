@@ -3,7 +3,7 @@ import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 
-const ItemDetail = ({id, brand, name, cat, year, km, stock, image}) => {
+const ItemDetail = ({id, brand, name, cat, year, km, stock, image, price}) => {
 
 	const [count, setCount] = useState(1);
 
@@ -35,6 +35,7 @@ const ItemDetail = ({id, brand, name, cat, year, km, stock, image}) => {
 								<p>Año: {year}</p>
 								<p>Km: {km}</p>
 								<p>Stock: {stock}</p>
+								<p>Precio: US${price}</p>
 
 								<button className="btn" onClick={restar}>-</button>
 								<button className="btn">Agregar {count} </button>

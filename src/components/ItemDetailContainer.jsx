@@ -18,7 +18,7 @@ const ItemDetailContainer = ({data}) => {
             {
                 arr.map((auto, index) => {
                     return (
-                        <ItemDetail key={index} id={auto.id} brand={auto.brand} name={auto.name} cat={auto.category} year={auto.year} km={auto.km} stock={auto.stock} image={auto.image}/>
+                        <ItemDetail key={index} id={auto.id} brand={auto.brand} name={auto.name} cat={auto.category} year={auto.year} km={auto.km} stock={auto.stock} image={auto.image} price={auto.price}/>
                     )
                 })
             }
