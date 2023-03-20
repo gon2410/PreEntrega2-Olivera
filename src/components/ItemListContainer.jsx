@@ -1,12 +1,29 @@
 import React from 'react'
-import { Container } from '@chakra-ui/react'
+import Container from 'react-bootstrap/Container';
+import { useParams } from 'react-router-dom';
+import ItemList from './ItemList';
 
-const ItemListContainer = ({greeting}) => {
+const ItemListContainer = ({data}) => {
+    const { category } = useParams();
+    let arr = []
+
+    for (let index = 0; index < data.length; index++) {
+        const element = data[index].category;
+        if (element == category) {
+            arr.push(data[index])
+        }
+    }
+
     return (
         <>
-            <Container maxW='1000px' padding={5}>
-                <h1>{greeting}</h1>
+            
+            <Container fluid="sm" className="mt-5">
+                <h3 className="text-capitalize">Vehiculos {category}</h3>
+                <hr/>
+                <br/>
+                <ItemList data={arr}/>
             </Container>
+            
         </>
     )
 }

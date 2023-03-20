@@ -1,0 +1,62 @@
+[
+    {
+        "id": "1",
+        "brand": "Volkswagen",
+        "name": "Polo",
+        "category": "usados",
+        "year": "2020",
+        "km": 90000,
+        "stock": 1,
+        "image": "../src/assets/Volkswagen_Polo_Rojo.png"
+    },
+    {
+        "id": "2",
+        "brand": "Chevrolet",
+        "name": "Cruze",
+        "category": "usados",
+        "year": "2017",
+        "km": 50000,
+        "stock": 1,
+        "image": "../src/assets/Chevrolet_Cruze_Blanco.png"
+    },
+    {
+        "id": "3",
+        "brand": "Renault",
+        "name": "Sandero",
+        "category": "usados",
+        "year": "2019",
+        "km": 100000,
+        "stock": 1,
+        "image": "../src/assets/Renault_Sandero_Gris.png"
+    },
+    {
+        "id": "4",
+        "brand": "Chevrolet",
+        "name": "Onix",
+        "category": "nuevos",
+        "year": "2023",
+        "km": 0,
+        "stock": 3,
+        "image": "../src/assets/Chevrolet_Onix_Negro.png"
+    },
+    {
+        "id": "5",
+        "brand": "Renault",
+        "name": "Duster",
+        "category": "nuevos",
+        "year": "2023",
+        "km": 0,
+        "stock": 5,
+        "image": "../src/assets/Renault_Duster_Azul.png"
+    },
+    {
+        "id": "6",
+        "brand": "Volkswagen",
+        "name": "Virtus",
+        "category": "nuevos",
+        "year": "2023",
+        "km": 0,
+        "stock": 4,
+        "image": "../src/assets/Volkswagen_Virtus_Gris_Oscuro.png"
+    }
+]

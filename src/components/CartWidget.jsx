@@ -1,15 +1,15 @@
 import React from 'react'
-import { Box } from '@chakra-ui/react'
+import Nav from 'react-bootstrap/Nav';
 
 const CartWidget = () => {
     return (
         <>
-            <Box marginTop={2}>
+            <Nav>
                 <span className="material-symbols-outlined">shopping_cart</span>
-            </Box>
-            <Box>
-                5
-            </Box>
+            </Nav>
+            <Nav>
+                0
+            </Nav>
         </>
     )
 }

@@ -1,26 +1,27 @@
 import React from 'react'
 import CartWidget from './CartWidget';
 import Categories from './Categories';
-import { Container, Box, Flex, Spacer } from '@chakra-ui/react'
+import Container from 'react-bootstrap/Container';
+import Navbar from 'react-bootstrap/Navbar';
+import { Link } from 'react-router-dom';
 
 const NavBar = () => {
     return (
         <>  
-            <Container maxW='1000px' bg='blue.600' padding={5} borderBottomRadius="md">
-                <Flex>
-                    <Box marginTop={2}>
-                        <img src="../src/assets/coche.png" alt="" width={30}/>
-                    </Box>
+            <Navbar bg="light" expand="lg" className="shadow">
+            <Container>
+                <Link to="/">
+                    <Navbar.Brand><img src="../src/assets/coche.png" width="50" alt="" /></Navbar.Brand>
+                </Link>
+                <Navbar.Toggle aria-controls="basic-navbar-nav" />
+                <Navbar.Collapse id="basic-navbar-nav">
 
-                    <Spacer/>
+                <Categories/>
 
-                    <Categories/>
-
-                    <Spacer/>
-
-                    <CartWidget/>
-                </Flex>
+                <CartWidget/>
+                </Navbar.Collapse>
             </Container>
+            </Navbar>
         </>
     )
 }
