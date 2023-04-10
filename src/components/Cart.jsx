@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { doc, collection, addDoc, setDoc, getFirestore } from 'firebase/firestore';
 
 import { CartListContext } from '../context/CartContext';
@@ -9,13 +9,17 @@ import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
+import swal from 'sweetalert';
+
+
 
 const Cart = () => {
     const { cartList, setCartList } = useContext(CartListContext);
     const [orderId, setOrderId] = useState(null);
     const [email, setEmail] = useState("");
     const [name, setName] = useState("");
-    let total;
+    const [totalPrice, setTotalPrice] = useState(0);
+
     const db = getFirestore();
 
     const handleSubmit = (e) => {
@@ -24,22 +28,36 @@ const Cart = () => {
         addDoc(ordersCollection, order).then(({ id }) => setOrderId(id));
     }
 
-    const order = {name, email, cartList};
+    const order = {name, email, cartList, totalPrice};
     const ordersCollection = collection(db, "orden");
-
 
     function updateStock(it) {
 		const db = getFirestore();
 		const oneItem = doc(db, "autos_" + it.cat, it.id);
-		setDoc(oneItem, { id: it.id, brand: it.brand, model: it.model, category: it.cat, image: it.image_url, price: it.price, description: it.desc, stock: it.quantity + (it.org_stock - it.quantity)});
+		setDoc(oneItem, { id: it.id, brand: it.brand,
+                        model: it.model, category: it.cat,
+                        image: it.image_url, price: it.price,
+                        description: it.desc,
+                        stock: it.quantity + (it.org_stock - it.quantity)});
 	}
+
+    useEffect(() => {
+        let total = 0;
+        for (let i = 0; i < cartList.length; i++) {
+            total += cartList[i].price * cartList[i].quantity;
+        }
+        setTotalPrice(total);
+    }, [cartList])
 
 
     if (cartList.length == 0) {
         return (
             <>
-                <Container className="row mt-5 justify-content-center">
-                    <h3>Carrito vacio!</h3>
+                <Container className="mt-5">
+                    <Row className="text-center">
+                        <span className="material-symbols-outlined text-muted">shopping_cart</span>
+                        <p className="text-center">Carrito vacio!</p>
+                    </Row>
                 </Container>
             </>
         )
@@ -51,7 +69,6 @@ const Cart = () => {
                         <Col>
                             {
                                 cartList.map((item) => {
-                                    total += item.price
                                     return (
                                         <>
                                             <Card key={item.id} style={{ width: '28rem' }} className="mb-2">
@@ -67,7 +84,7 @@ const Cart = () => {
                                                                     cartList.filter(it => it.model !== item.model)
                                                                 );
                                                                 updateStock(item);
-                                                            }} className="btn-sm btn-light"><span class="material-symbols-outlined">delete</span></Button>
+                                                            }} className="btn-sm btn-light"><span className="material-symbols-outlined">delete</span></Button>
                                                         </Card.Body>
                                                     </Col>
                                                 </Row>
@@ -88,15 +105,16 @@ const Cart = () => {
                                     <Form.Group className="mt-3">
                                         <Form.Control type="email" placeholder="Ingrese su direccion de e-mail" onChange={(e) => setEmail(e.target.value)}></Form.Control>
                                     </Form.Group>
-                                    <p>Total: {total}</p>
-                                    <Button className="mt-3" variant="primary" type="submit">Comprar</Button>
+                                    
+                                    <Button onClick={() => {
+                                        setCartList([]);
+                                        swal("Gracias por tu compra!", "Orden de compra: " + orderId, "success");}} className="btn-sm btn-success mt-3" variant="primary" type="submit">Finalizar compra</Button>
+                                    <p className="text-success">Total: US${totalPrice}</p>
                                 </Form>
 
                             </Container>
                         </Col>
                     </Row>
-                    
-
                 </Container>
             </>
 

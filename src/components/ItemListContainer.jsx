@@ -4,6 +4,7 @@ import Spinner from 'react-bootstrap/Spinner';
 import { useParams } from 'react-router-dom';
 import ItemList from './ItemList';
 import { collection, getDocs, getFirestore } from "firebase/firestore";
+import Row from 'react-bootstrap/Row';
 
 const ItemListContainer = () => {
     const { category } = useParams();
@@ -24,15 +25,17 @@ const ItemListContainer = () => {
     if (loading) {
         return (
             <>
-                <Container fluid="sm" className="mt-5">
-                    <Spinner animation="border"/>
+                <Container className="mt-5">
+                    <Row className="justify-content-center">
+                        <Spinner animation="border"/>
+                    </Row>
                 </Container>
             </>
         )
     } else {
         return (
             <>
-                <Container fluid="sm" className="mt-5">
+                <Container className="mt-5">
                     <h3 className="text-capitalize">{category}</h3>
                     <hr/>
                     <br/>

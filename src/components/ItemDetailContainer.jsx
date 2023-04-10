@@ -4,6 +4,7 @@ import { useParams, useLocation } from 'react-router-dom';
 import ItemDetail from './ItemDetail';
 import Spinner from 'react-bootstrap/Spinner';
 import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
 
 const ItemDetailContainer = () => {
     const {id} = useParams();
@@ -29,8 +30,10 @@ const ItemDetailContainer = () => {
     if (loading) {
         return (
             <>
-                <Container fluid="sm" className="mt-5">
-                    <Spinner animation="border"/>
+                <Container className="mt-5">
+                    <Row className="justify-content-center">
+                        <Spinner animation="border"/>
+                    </Row>
                 </Container>
             </>
         )
