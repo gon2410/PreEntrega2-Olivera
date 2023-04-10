@@ -1,29 +1,46 @@
-import React from 'react'
-import { useParams } from 'react-router-dom';
+import { doc, getDoc, getFirestore } from 'firebase/firestore';
+import React, { useEffect, useState } from 'react'
+import { useParams, useLocation } from 'react-router-dom';
 import ItemDetail from './ItemDetail';
+import Spinner from 'react-bootstrap/Spinner';
+import Container from 'react-bootstrap/Container';
 
-const ItemDetailContainer = ({data}) => {
+const ItemDetailContainer = () => {
     const {id} = useParams();
+    const [auto, setAuto] = useState([]);
+	const [ loading, setLoading ] = useState(true);
+    const location = useLocation()
+    const { from } = location.state;
 
-    let arr = []
+    useEffect(() => {
+        const db = getFirestore();
 
-    for (let index = 0; index < data.length; index++) {
-        if (data[index].id == id) {
-            arr.push(data[index])
-        }
-    }
+        const oneItem = doc(db, "autos_" + from, id);
 
-    return (
-        <>
-            {
-                arr.map((auto, index) => {
-                    return (
-                        <ItemDetail key={index} id={auto.id} brand={auto.brand} name={auto.name} cat={auto.category} year={auto.year} km={auto.km} stock={auto.stock} image={auto.image} price={auto.price}/>
-                    )
-                })
+        getDoc(oneItem).then((snapshot) => {
+            if (snapshot.exists()) {
+                const docs = snapshot.data();
+                setAuto(docs);
+                setLoading(false)
             }
-        </>
-    )
+        })
+    }, [])
+
+    if (loading) {
+        return (
+            <>
+                <Container fluid="sm" className="mt-5">
+                    <Spinner animation="border"/>
+                </Container>
+            </>
+        )
+    } else {
+        return (
+            <>
+                <ItemDetail id={auto.id} brand={auto.brand} model={auto.model} image={auto.image} price={auto.price} stock={auto.stock} desc={auto.description} from={from}/>
+            </>
+        )
+    }
 }
 
 export default ItemDetailContainer

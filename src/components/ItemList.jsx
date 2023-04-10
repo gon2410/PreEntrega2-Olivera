@@ -13,7 +13,7 @@ const ItemList = ({data}) => {
                         data.map((auto, index) => {
                             return (
                                 <Col key={index}>
-                                    <Item id={auto.id} brand={auto.brand} name={auto.name} cat={auto.category} year={auto.year} km={auto.km} stock={auto.stock} image={auto.image} price={auto.price}></Item>
+                                    <Item id={auto.id} brand={auto.brand} model={auto.model} image={auto.image} cat={auto.category} price={auto.price}></Item>
                                 </Col>
                             )
                         })

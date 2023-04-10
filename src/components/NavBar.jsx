@@ -15,10 +15,8 @@ const NavBar = () => {
                 </Link>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
-
-                <Categories/>
-
-                <CartWidget/>
+                    <Categories/>
+                    <CartWidget/>
                 </Navbar.Collapse>
             </Container>
             </Navbar>
