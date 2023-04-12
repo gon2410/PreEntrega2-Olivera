@@ -5,15 +5,15 @@ A vehicle e-commerce web app project.
 
 ### Technologies used
 * Frameworks
-  * ReactJS (Vite)
+  * ReactJS (Vite) - 18.2.0
 * Languages
   * JavaScript
 * Styling
-  * React-Bootstrap
-  * Sweetalert
-  * Toastify
+  * React-Bootstrap - 2.7.2
+  * Sweetalert - 2.1.2
+  * Toastify - 1.12.0
 * Database
-  * Firebase
+  * Firebase - 9.18.0
 
 ### Demo
 ![](https://github.com/gon2410/PreEntrega2-Olivera/blob/master/gif.gif)
