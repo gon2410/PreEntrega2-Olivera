@@ -3,7 +3,6 @@ import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 
-
 const Home = ({greeting}) => {
     return (
         <>
@@ -11,10 +10,10 @@ const Home = ({greeting}) => {
                 <Row>
                     <Col>
                         <h1>{greeting}</h1>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                            Magni a quo cum explicabo laudantium. Quae aut,
-                            praesentium nulla ex necessitatibus autem ut fugit,
-                            natus dolor, similique odit error quas tempore.</p>
+                        <p>A concesionaria de vehiculos donde solo vendemos vehiculos 
+                            0km. Los vehiculos que vendemos son de tipo sedan, hatchbacks
+                            y camionetas para uso particular. No vendemos utilitarios.
+                        </p>
                     </Col>
                     <Col>
                         <img src="../src/assets/Volkswagen_Amarok_Azul.png" alt="" width={400}/>

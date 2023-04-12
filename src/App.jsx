@@ -7,7 +7,6 @@ import ItemDetailContainer from "./components/ItemDetailContainer";
 import CartContext from "./context/CartContext";
 import Cart from "./components/Cart";
 
-
 const App = () => {
 
     return (
