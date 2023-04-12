@@ -54,7 +54,7 @@ const Cart = () => {
     for (let i = 0; i < cartList.length; i++) {
         items += cartList[i].brand + " " + cartList[i].model + "\n";
     }
-    const total = "Nombre: " + name + '\n' + "Items: \n" + items + "\n" + "Total: US$" + totalPrice;
+    const total = "Nombre: " + name + '\n' + "Items: " + items + "\n" + "Total: US$" + totalPrice;
 
     if (cartList.length == 0) {
         return (
@@ -114,7 +114,7 @@ const Cart = () => {
                                     
                                     <Button onClick={() => {
                                         setCartList([]);
-                                        swal("Gracias por tu compra!", total, "success");}} className="btn-sm btn-success mt-3" variant="primary" type="submit">Finalizar compra</Button>
+                                        swal("Gracias por tu compra!", "Datos: " + total, "success");}} className="btn-sm btn-success mt-3" variant="primary" type="submit">Finalizar compra</Button>
                                     <p className="text-success">Total: US${totalPrice}</p>
                                 </Form>
 
