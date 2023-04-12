@@ -1,7 +1,7 @@
 ## PreEntrega2-Olivera
 
 ### What is it?
-A vehicle e-commerce web app project.
+A vehicle e-commerce web app project. It is not 100% functional, is just a project!
 
 ### Technologies used
 * Frameworks
