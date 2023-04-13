@@ -19,6 +19,7 @@ const Cart = () => {
     const [email, setEmail] = useState("");
     const [name, setName] = useState("");
     const [totalPrice, setTotalPrice] = useState(0);
+    const [finalOrder, setFinalOrder] = useState("");
 
     const db = getFirestore();
 
@@ -43,18 +44,18 @@ const Cart = () => {
 
     useEffect(() => {
         let total = 0;
+        let items = ""
         for (let i = 0; i < cartList.length; i++) {
             total += cartList[i].price * cartList[i].quantity;
+            items += cartList[i].brand + " " + cartList[i].model + "\n";
+
         }
         setTotalPrice(total);
+        setFinalOrder("Nombre: " + name + '\n' + "Items: " + items + "\n" + "Total: US$" + totalPrice);
+
     }, [cartList])
 
 
-    let items = ""
-    for (let i = 0; i < cartList.length; i++) {
-        items += cartList[i].brand + " " + cartList[i].model + "\n";
-    }
-    const total = "Nombre: " + name + '\n' + "Items: " + items + "\n" + "Total: US$" + totalPrice;
 
     if (cartList.length == 0) {
         return (
@@ -114,7 +115,7 @@ const Cart = () => {
                                     
                                     <Button onClick={() => {
                                         setCartList([]);
-                                        swal("Gracias por tu compra!", "Datos: " + total, "success");}} className="btn-sm btn-success mt-3" variant="primary" type="submit">Finalizar compra</Button>
+                                        swal("Gracias por tu compra!", finalOrder, "success");}} className="btn-sm btn-success mt-3" variant="primary" type="submit">Finalizar compra</Button>
                                     <p className="text-success">Total: US${totalPrice}</p>
                                 </Form>
 
