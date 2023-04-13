@@ -53,7 +53,7 @@ const Cart = () => {
         setTotalPrice(total);
         setFinalOrder("Nombre: " + name + '\n' + "Items: " + items + "\n" + "Total: US$" + totalPrice);
 
-    }, [cartList])
+    }, [cartList, totalPrice, name])
 
 
 
